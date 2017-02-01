@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>万年历</title>
+	<link rel="stylesheet" type="text/css" href="css/rl.css">
+	<script type="text/javascript">
+		window.onload=function(){
+			var oContainer=document.getElementsByClassName('container')[0];
+
+			
+			var aBtn=document.getElementsByTagName('button');
+
+
+			
+			var oCont=oContainer.getElementsByClassName('content')[0];//变量名o开头并且getElementS有个s的，记得写[0]
+
+			var arr=['你好啊我们一起去意大利',
+			'哈哈哈哈哈哈哈哈哈哈哈哈',
+			'llllllllllllllllllll',
+			'inaongd',
+			'555555555555555555555555555',
+			'666666666666',
+			'7777777777777777777',
+			'88888888888',
+			'99999999999',
+			'101010',
+			'111111111111111111111',
+			'1212121212',
+			];
+
+			for (var i = aBtn.length - 1; i >= 0; i--) {
+				aBtn[i].index=i;
+				aBtn[i].onmouseover=function() {
+					oCont.innerHTML='<h3>'+(this.index+1)+'月活动</h3><p>'+arr[this.index]+'</p>';
+				}
+			}
+		}
+	
+	</script>
+</head>
+<body>
+	<div class="container">
+		<div class="wrapper">
+			<div class="row">
+				<div><button>1</button></div>
+				<div><button>2</button></div>
+				<div><button>3</button></div>
+			</div>
+			<div class="row">
+				<div><button>4</button></div>
+				<div><button>5</button></div>
+				<div><button>6</button></div>
+			</div>
+			<div class="row">
+				<div><button>7</button></div>
+				<div><button>8</button></div>
+				<div><button>9</button></div>
+			</div>
+			<div class="row">
+				<div><button>10</button></div>
+				<div><button>11</button></div>
+				<div><button>12</button></div>
+			</div>
+		</div>
+		<div class="content">
+			<h3>1月活动</h3>
+			<p>要去拜年找外婆，变得温暖，事业有成</p>
+		</div>
+	</div>
+</body>
+</html>
+
+
+<!-- onmouseover只触发一次（只要鼠标移动到元素上面就触发）；onmousemove会不断触发（只要鼠标在元素上面并且移动了鼠标就触发）。
+一般情况下只需用onmouseover即可，特殊情况才用onmousemove（因为这个比较耗资源），比如需要监控鼠标坐标的变化。 -->
+
+
+
+
+
+
+<!-- 获取元素的方法在主流的浏览器上有4个:
+
+
+getElementsByName
+getElementById
+getElementsByTagName
+getElementsByClassName
+
+
+他们4个都是document对象上的属性，要通过document对象来调用
+
+
+但是，其中getElementsByTagName，getElementsByClassName也可以通过DOM对象(元素)来调用 -->
