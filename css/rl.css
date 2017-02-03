@@ -1,0 +1,49 @@
+.container{
+	width: 190px;
+	margin: 0 auto;
+	position: relative;
+}
+.wrapper{
+	display: table;
+	border-collapse: separate;
+	border-spacing: 10px 10px;
+	background: #ccc;
+	margin:0 auto;
+}
+.row{
+	display: table-row;
+}
+.row div,
+.row button{
+	display: table-cell;
+	height:50px;
+	width: 50px;
+}
+.row button{
+	font-size: 25px;
+	background: #333;
+	color: #fff;
+	border:none;
+}
+.row button:hover{
+	cursor: pointer;
+	background: #23aa11;
+}
+.content{
+	position: absolute;
+	left: 0;
+	top: 250px;
+	width: 190px;
+	display: block;
+	background: #ccc;
+}
+.content h3,
+.content p{
+	margin: 10px;
+}
+.content h3{
+	font:bold 16px/1 '黑体';
+}
+.content p{
+	font-size: 14px;
+}
