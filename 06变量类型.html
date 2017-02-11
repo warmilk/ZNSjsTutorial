@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>06变量类型</title>
+	<script type="text/javascript">
+		window.onload=function() {
+			var oTxt1=document.getElementsByName('txt1')[0];
+			var oTxt2=document.getElementsByName('txt2')[0];
+			var oBtn=document.getElementsByTagName('button')[0];
+
+			oBtn.onclick=function() {
+				var iTxt1=parseInt(oTxt1.value);
+				var iTxt2=parseInt(oTxt2.value);
+
+				if (isNaN(iTxt1)) {
+					alert('please input number in the first box');
+				} else if(isNaN(iTxt2)){
+					alert('please input number in the second box');
+				}else{
+					alert(iTxt1+iTxt2);
+				}
+
+			}
+
+		}
+	</script>
+</head>
+<body>
+	<input type="text" name="txt1">
+	<input type="text" name="txt2">
+	<button>求和</button>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+<!-- ----------------------------------------------
+NaN==NaN是返回false的！
+
+		var a=parseInt('abc');//a为NaN
+		var b=parseInt('ghrrr');//b也为NaN
+
+		alert(a==b);//结果是false
+
+
+要比较两个NaN只能用isNaN(a);
+
+
+
+
+
+
+
+
+----------------------------------------------------
+string变number
+parseInt();变整数    //字符串'3.5'parseInt();出来之后是3
+parseFloat();变小数
+ -->

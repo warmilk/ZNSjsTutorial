@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>选项卡</title>
+	<style type="text/css">	
+		/*tab按钮（选中）*/
+		.activeTab{
+			background: yellow;
+		}
+		/*tab按钮（默认）*/
+		.defaultTab{
+			background:#ccc;
+		}
+
+
+		/*tab菜单（默认）*/
+		div{
+			height:300px;
+			width:300px;
+			background:yellow;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+		window.onload=function(){
+			var aTab=document.getElementsByTagName('button');
+			var aTabItem=document.getElementsByTagName('div');
+
+
+
+
+
+			//for循环遍历a开头的变量..给每一个aTab都加上onclick事件
+			for (var i = aTab.length - 1; i >= 0; i--) {
+				// 给aTab添加index属性(1.通过HTML行间手动添加-错。   2.通过Javascript动态添加-对【和面向对象什么的有关】)
+				aTab[i].index=i;
+
+				aTab[i].onclick=function(){
+
+					//在某一个aTab发生了onclick时
+					for (var i = aTab.length - 1; i >= 0; i--) {
+						//将所有aTab都置为defaultTab样式
+						aTab[i].className='defaultTab';
+						//将所有aTabItem都置为display:none;
+						aTabItem[i].style.display='none';
+					}
+
+
+					//发生了onclick事件的那个元素（this）
+
+					//单独就那个aTab置为activeTab样式
+					this.className='activeTab';
+					//单独就那个aTabItem置为display:block;
+					aTabItem[this.index].style.display='block';
+				};
+			}
+
+
+			
+
+
+
+
+		};
+	</script>
+</head>
+<body>
+	<button class="activeTab">一</button>
+	<button>二</button>
+	<button>三</button>
+	<button>四</button>
+	<div style="display: block;">1111yiyiyiyiiyi</div>
+	<div>2222hhhhhlaiaid</div>
+	<div>3333和i鞥</div>
+	<div>444</div>
+</body>
+</html>
+
+

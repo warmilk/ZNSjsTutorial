@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>数组的属性和方法</title>
+	<script type="text/javascript">
+		// 声明：两种方法----------------------------------------
+		var a=[1,2,3];
+		var a=new Array(1,2,3,4,5,6,7,8);
+
+		// 属性：常用的是length-------------------------------------
+		alert(a.length);
+		a.length=3;
+		alert(a);
+
+		//方法：sort，push，splice，join，concat-------------------
+
+
+		// 从末尾插入一个新元素
+		var b=[1,2,3];
+		b.push(1000)
+		alert(b);
+
+
+		// 从中间任意位置删除后（插入新的）元素
+		var c=500;
+		var b=[1,2,3,4,5,6];
+		b.splice(3,3,'a','b',c);
+		alert(b);//1,2,3,"a","b",500
+		alert(b[5]);
+		alert(typeof(b[5]));
+
+
+		//将，临时改为别的鬼东西
+		var c=['2013','03','04'];
+		alert(c.join("--"));//alert(c);是没用的
+		
+
+		// 连接两个数组
+		alert(b.concat(c));
+
+
+
+		// 字符串排序
+		var d=['aman','uu','zz','a','banner'];
+		alert(d.sort());
+
+
+
+
+
+		//数字排序
+		var f=[2,555,8,9,67,45];
+		f.sort(function (n1,n2) {
+			return n1-n2;
+		})
+		f.sort();
+		alert(f);
+	</script>
+</head>
+<body>
+</body>
+</html>

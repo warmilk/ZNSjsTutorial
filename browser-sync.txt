@@ -1,0 +1,8 @@
+browser-sync start --server --files "**/*.css, **/*.html"
+
+
+Windows£º
+C:\Users\Administrator\Desktop\ZNSjs
+
+Linux£º
+C:/Users/Administrator/Desktop/ZNSjs

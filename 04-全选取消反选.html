@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript">
+	window.onload=function(){
+		// 获取[触发器]
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var oBtn3=document.getElementById('btn3');
+		// 获取[被操纵对象]
+		var aCh=document.getElementsByTagName('input');
+
+
+
+
+		//给触发器添加事件
+		oBtn1.onclick=function(){
+			for (var i = aCh.length - 1; i >= 0; i--) {
+				aCh[i].checked=true;
+			}
+		};
+
+		//给触发器添加事件
+		oBtn2.onclick=function(){
+			for (var i = aCh.length - 1; i >= 0; i--) {
+				aCh[i].checked=false;
+			}
+		};
+
+		//给触发器添加事件
+		oBtn3.onclick=function(){
+			for (var i = aCh.length - 1; i >= 0; i--) {
+				if (aCh[i].checked===true){
+					aCh[i].checked=false;
+				} 
+				else {
+					aCh[i].checked=true;
+				}
+			}
+		};
+	};
+	</script>
+</head>
+<body>
+	<button id="btn1">全选</button>
+	<button id="btn2">取消</button>
+	<button id="btn3">反选</button><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+	<input type="checkbox" name=""><br>
+</body>
+</html>

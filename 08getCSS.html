@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>获取非行间样式</title>
+	<style type="text/css">
+		div{
+			height: 300px;
+			width: 300px;
+			background: red;
+
+		}
+	</style>
+
+
+	<script type="text/javascript">
+
+		// 将常用功能封装成函数
+		function getCSS(obj,name) {
+			if(obj.currentStyle){
+				return obj.currentStyle[name];
+			}
+			else{
+				return getComputedStyle(obj,null)[name];
+			}
+		}
+
+
+
+
+		window.onload=function() {
+			var oDiv=document.getElementById('div1');
+
+			alert(getCSS(oDiv,'background-color'));
+			// alert(oDiv.currentStyle);
+			// if (oDiv.currentStyle) {
+			// 	//IE
+			// 	alert(oDiv.currentStyle.width);
+			// } 
+			// else {
+			// 	//FF,Chrome
+			// 	alert(getComputedStyle(oDiv,false).width);
+			// }
+
+		};
+	</script>
+</head>
+<body>
+	<div id="div1"></div>
+</body>
+</html>
