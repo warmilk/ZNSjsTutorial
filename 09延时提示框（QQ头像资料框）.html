@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>延时提示框</title>
+	<style type="text/css">
+		#touxiang{
+			height: 50px;
+			width: 50px;
+			background: red;
+			float: left;
+		}
+		#info{
+			float: left;
+			margin-left: 10px;
+			height: 300px;
+			width:300px;
+			background: #ccc;
+			display: none;
+		}
+	</style>
+	<script type="text/javascript">
+
+
+
+	//----------------------------------------------------------
+	/*合并一：
+	var了两个定时炸弹，后来发现他俩的两个参数都一毛一样。。于是合并为同一个定时炸弹
+
+
+		window.onload=function(){
+			var oTX=document.getElementById('touxiang');
+			var oInfo=document.getElementById('info');
+			var timer=null;
+			var timebomb=null;
+
+			oTX.onmouseover=function(){
+				clearTimeout(timebomb);
+				oInfo.style.display="block";
+			};
+
+			oTX.onmouseout=function() {
+				//加个setTimeout起的是延时的功能，让oInfo.style.display="none";这件事1000毫秒后再发生
+
+
+				timer=setTimeout(function() {
+					oInfo.style.display="none";
+
+					//因为element.style.""=""是行间样式啊。。优先级高！
+				},3000);
+
+
+				//1000毫秒的设置是有原因的：oTX.onmouseout的一瞬间开了定时器（发生oInfo消失这个事件），所以要在1000毫秒内oInfo.onmouseover把定时器关了（阻止oInfo消失这个事件的发生）
+			}
+
+			oInfo.onmouseover=function() {
+				clearTimeout(timer);
+			}
+
+			oInfo.onmouseout=function() {
+				timebomb=setTimeout(function() {
+					oInfo.style.display="none";
+				},3000);
+			}
+		}
+
+		*/
+
+
+
+
+
+		//------------------------------------------------------
+		/*合并二：
+		合并了那个一毛一样的定时炸弹。。
+
+		window.onload=function(){
+			var oTX=document.getElementById('touxiang');
+			var oInfo=document.getElementById('info');
+			var timebomb=null;//可爱的定时炸弹，里面放了一个事件，和这个事件要发生的时间点
+
+			oTX.onmouseover=function(){
+				clearTimeout(timebomb);
+				oInfo.style.display="block";
+			};
+
+			oTX.onmouseout=function() {
+				//加个setTimeout起的是延时的功能，让oInfo.style.display="none";这件事1000毫秒后再发生
+				timebomb=setTimeout(function() {
+					oInfo.style.display="none";//因为element.style.""=""是行间样式啊。。优先级高！
+				},3000);
+				//1000毫秒的设置是有原因的：oTX.onmouseout的一瞬间开了定时器（发生oInfo消失这个事件），所以要在1000毫秒内oInfo.onmouseover把定时器关了（阻止oInfo消失这个事件的发生）
+			}
+
+			oInfo.onmouseover=function() {
+				clearTimeout(timebomb);
+			}
+
+			oInfo.onmouseout=function() {
+				timebomb=setTimeout(function() {
+					oInfo.style.display="none";
+				},3000);
+			}
+		}
+
+		*/
+
+
+
+		//-----------------------------------------------------
+		// 合并三：把那些一毛一样的东西比如（a="一大坨"，b="一大坨"，c="一大坨"）用a=b=c="一大坨"给合并了
+		window.onload=function(){
+			var oTX=document.getElementById('touxiang');
+			var oInfo=document.getElementById('info');
+			var timebomb=null;//可爱的定时炸弹，里面放了一个事件，和这个事件要发生的时间点
+
+			oTX.onmouseover=oInfo.onmouseover=function(){
+				clearTimeout(timebomb);
+				oInfo.style.display="block";
+			};
+
+			oTX.onmouseout=oInfo.onmouseout=function() {
+				timebomb=setTimeout(function() {
+					oInfo.style.display="none";
+				},1000);
+			};
+		};
+
+	</script>
+</head>
+<body>
+	<div id="touxiang"></div>
+	<div id="info"></div>
+</body>
+</html>
