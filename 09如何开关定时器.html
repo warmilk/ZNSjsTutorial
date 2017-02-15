@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试定时器</title>
+	<script type="text/javascript">
+	window.onload=function () {
+		
+		
+		var timer=null;
+		var oBtn1=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+
+		oBtn1.onclick=function(){
+			timer=setInterval(function () {
+				alert('show me show me~');
+			},1000);
+		}
+		oBtn2.onclick=function() {
+			clearInterval(timer);
+		}
+
+	}
+
+
+	
+	</script>
+</head>
+<body>
+	<button id="btn1">开启</button>
+	<button id="btn2">关闭</button>
+</body>
+</html>
+
+// 开启时钟：
+洗脑循环型
+intervalTimer = setInterval(functionName,间隔的时间:毫秒）
+定时炸弹型
+timeoutTimer = setTimeout(functionName,间隔的时间:毫秒）
+
+
+
+
+// 关闭时钟：
+clearInterval(intervalTimer);
+clearTimeout(timeoutTimer);
