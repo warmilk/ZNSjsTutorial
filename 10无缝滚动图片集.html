@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>无缝滚动</title>
+	<style type="text/css">
+		/*
+		#div1{
+			height:150px;
+			width:150px;
+			background: red;
+			position:absolute;
+			top:10px;
+			left:10px;
+		}
+		*/
+		*{
+			margin:0;
+			padding:0;
+		}
+		body{
+			text-align: center;
+		}
+		ul{
+			position: absolute;
+			left: 0;
+			top:0;
+		}
+		ul li{
+			float: left;
+			width: 178px;
+			height: 108px;
+			list-style:none;
+
+		}
+		#div1{
+			position: relative;
+			margin:0 auto;
+			width:712px;
+			height:108px;
+			background: red;
+			overflow: hidden;
+		}
+		#div1,
+		.btn{
+			display: inline-block;
+		}
+		.btn{
+			outline: none;
+			vertical-align: 25px;
+			border:none;
+			width:50px;
+			height:50px;
+			background-image: url(imgs/images/btn.jpg);
+			background-size: 100px 100px;
+		}
+		.btnL{		
+			background-position: 50px 50px;
+		}
+		.btnL:hover{
+			background-position: 50px 0px;
+		}
+		.btnR{
+			background-position: 0px 50px;
+		}
+		.btnR:hover{
+			background-position: 0px 0px;
+		}
+	</style>
+
+</head>
+<body>
+	<!-- <div id="div1"></div> -->
+	<button class="btn btnL"></button>
+	<div id="div1">
+		<ul>
+			<li><img src="imgs/images/1.jpg"></li>
+			<li><img src="imgs/images/2.jpg"></li>
+			<li><img src="imgs/images/3.jpg"></li>
+			<li><img src="imgs/images/4.jpg"></li>
+		</ul>
+	</div>
+	<button class="btn btnR"></button>
+	<script type="text/javascript">
+	(function() {
+			
+			var oDiv1=document.getElementById('div1');
+			var oUl=oDiv1.getElementsByTagName('ul')[0];
+			var aLi=oUl.getElementsByTagName('li');
+			var oBtnL=document.getElementsByClassName('btnL')[0];
+			var oBtnR=document.getElementsByClassName('btnR')[0];
+			var timebomb=null;
+			var speed=2;
+
+			
+			oUl.innerHTML+=oUl.innerHTML;// oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;
+			oUl.style.width=(aLi[0].offsetWidth*aLi.length)+'px';
+
+			function move() {
+					
+					//向左滚动（speed为-）
+					if(oUl.offsetLeft<(-oUl.offsetWidth/2)){
+						oUl.style.left=0+'';//ul的左边框与div的左边框对齐
+					}
+
+					//向右滚动（speed为+）
+					if(oUl.offsetLeft>0){
+						oUl.style.left=-(oUl.offsetWidth/2)+'px';// ul的右边框与div的右边框对齐
+					}
+					oUl.style.left=(oUl.offsetLeft+speed)+'px';
+				}
+
+			oDiv1.onmouseout=function() {
+				timebomb=setInterval(move,30);
+			};
+
+			oDiv1.onmouseover=function() {
+				clearInterval(timebomb);
+			};
+
+			
+			oBtnL.onclick=function() {
+				speed=-2;
+			};
+
+			oBtnR.onclick=function() {
+				speed=2;
+			};
+		}
+		)();
+	</script>
+</body>
+</html>
+
+
+<!-- 
+
+
+关于行间样式的数值的设置一定要记得
+【0】转化为字符串（+‘’）
+【1】写单位px
+
+elementnode.style.样式的名字  = 值+ ‘ ’ ; 
+oUl.style.left=0+'';
+oUl.style.left=(oUl.offsetLeft+speed)+'px';
+
+-->
