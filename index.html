@@ -35,13 +35,13 @@
 
 
 			var oUl1=document.getElementById('ul1');
-
 			var aA=oUl1.getElementsByTagName('a');
-			for (var i = 0; i < aA.length; i++) {
-				aA[i].onclick=function() {
-					var parents=aA.parentNode;
-					alert(parents);
-				}
+			
+
+			for (var j = 0; j < aA.length; j++) {
+				aA[j].onclick=function() {
+					this.parentNode.style.display="none";
+				};
 			}
 
 		})();
@@ -63,3 +63,13 @@ childNodes是个nodeList就是个数组，里面放了一堆node,这堆node里�
 
 childNodes的一堆各种node中，HTMLElement比较高地位，除了nodeType的值为1之外，还内置了一个叫做children的HTMLCollection对象来存储它
  -->
+
+
+
+ <!-- 善用this对象 -->
+
+
+
+ <!-- 
+ 为什么两个不同的for循环的i变量会有冲突....不能同时叫i......
+  -->
