@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>测试DOM</title>
+</head>
+<body>
+	<ul>
+		<li>你好啊</li>
+		<li>很高兴认识你</li>
+	</ul>
+	<ul id="ul1">
+		<li>第一名<a href="javascript:;">隐藏</a></li>
+		<li>今天赚到了人生中第一桶金<a href="javascript:;">隐藏</a></li>
+		<li>我们的征途是星辰大海<a href="javascript:;">隐藏</a></li>
+		<li>中二病病入膏肓<a href="javascript:;">隐藏</a></li>
+	</ul>
+	<script type="text/javascript">
+		(function() {
+			var oUl=document.getElementsByTagName('ul')[0];
+
+			// alert(oUl.childNodes.length);
+			// alert(oUl.childNodes[0]);
+			// for (var i = 0; i < oUl.childNodes.length; i++) {
+			// 	if (oUl.childNodes[i].nodeType==1) {
+			// 		oUl.childNodes[i].style.background="red";
+			// 	}			
+			// }
+
+			for (var i = 0; i < oUl.children.length; i++) {
+				// alert(oUl.children);
+				oUl.children[i].style.background="red";
+			}
+
+
+
+			var oUl1=document.getElementById('ul1');
+			var aA=oUl1.getElementsByTagName('a');
+			
+
+			for (var j = 0; j < aA.length; j++) {
+				aA[j].onclick=function() {
+					this.parentNode.style.display="none";
+				};
+			}
+
+		})();
+	</script>
+</body>
+</html>
+
+
+
+
+<!-- 
+注意childNodes之类的单词字母大小写，不要拼错漏写s之类的
+
+
+childNodes是个nodeList就是个数组，里面放了一堆node,这堆node里面的每个node都有自己的nodeType属性，比如HTMLelement Node的就是1，text Node的就是3
+
+
+
+
+childNodes的一堆各种node中，HTMLElement比较高地位，除了nodeType的值为1之外，还内置了一个叫做children的HTMLCollection对象来存储它
+ -->
+
+
+
+ <!-- 善用this对象 -->
+
+
+
+ <!-- 
+ 为什么两个不同的for循环的i变量会有冲突....不能同时叫i......
+  -->
